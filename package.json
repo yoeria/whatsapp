@@ -1,13 +1,12 @@
 {
   "name": "kesty-whatsapp",
-  "version": "1.2.0",
-  "description": "An unofficial whatsapp client for Linux",
+  "version": "1.2.5",
+  "description": "An unofficial whatsApp client for Linux",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "package": "./build.sh",
     "generate:icons": "./ico.sh",
-    "build:snap": "electron-builder --linux snap",
+    "build:snap": "electron-builder --linux --x64 --armv7l snap",
     "build:tar": "electron-builder --linux tar.xz",
     "build:win": "electron-builder --windows nsis"
   },
@@ -15,9 +14,9 @@
   "build": {
     "win": {
       "target": "nsis",
-      "icon":"./images/icons/win/icon.ico"
+      "icon": "./images/icons/win/icon.ico"
     },
-    "nsis":{
+    "nsis": {
       "oneClick": false
     },
     "dmg": {
@@ -31,15 +30,13 @@
           "target": "snap",
           "arch": [
             "x64",
-            "arm64",
-            "ia32"
+            "armv7l"
           ]
         }
       ]
     }
   },
   "keywords": [
-    "Electron",
     "Whatsapp",
     "social life",
     "social networking",
@@ -50,5 +47,11 @@
   "devDependencies": {
     "electron": "^8.2.0",
     "electron-builder": "^22.4.1"
+  },
+  "dependencies": {
+    "electron-context-menu": "^2.0.0",
+    "electron-is-dev": "^1.2.0",
+    "electron-localshortcut": "^3.2.1",
+    "electron-store": "^5.1.1"
   }
 }
